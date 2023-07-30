@@ -25,7 +25,7 @@ export default function LoginPage() {
             router.push("/profile")
 
         } catch (error:any) {
-            console.log("Login failed", error.message);
+            console.log("Login failed. Check your email or password.", error.message);
             toast.error(error.message);
             
         } finally {
