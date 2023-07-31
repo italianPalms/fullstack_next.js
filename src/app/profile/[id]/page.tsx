@@ -6,9 +6,7 @@ export default function UserProfile({params}: any) {
             <p className="text-4xl mt-5">Profile pagefffff 
             <span className="p-2 ml-2 rounded bg-orange-500 text-black">{params.id}</span>
             </p>
-            <button className="border mt-6">Sign out</button>
         </div>
-        
     )
 }
 
