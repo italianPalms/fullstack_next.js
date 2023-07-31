@@ -4,6 +4,7 @@ export default function ProfilePage() {
             <h1>Profile</h1>
             <hr />
             <p>Profile page</p>
+            <button className="border mt-6">Sign out</button>
         </div>
     )
 }
