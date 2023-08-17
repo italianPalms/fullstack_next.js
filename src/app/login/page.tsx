@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import {useRouter} from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
+import resetPassword from "../resetPassword/page";
 
 
 export default function LoginPage() {
@@ -41,6 +42,11 @@ export default function LoginPage() {
         }
     }, [user]);
 
+    const resetPassword = async () => {
+        router.push('/resetPassword')
+        console.log("Directing to reset password page")
+    }
+
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
             <h1>{loading ? "Processing" : "Login"}</h1>
@@ -69,9 +75,11 @@ export default function LoginPage() {
             <button 
             onClick={onLogin}
             className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600">Login here</button>
+            
             <button
-            // onClick={}
-            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"><Link href="/resetPassword">Forgot your password?</Link></button>
+            onClick={resetPassword}
+            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600">Forgot your password</button>
+
             <Link href="/signup">Not registered? Sign up here</Link>
         </div>
     )

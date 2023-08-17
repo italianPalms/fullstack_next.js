@@ -6,6 +6,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 export default function resetPassword() {
+   
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
         <h1 className="text-2xl">Reset your password</h1>
@@ -19,6 +20,8 @@ export default function resetPassword() {
         />
 
         <button className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600">Submit</button>
+
+        <Link href="/login" onClick={() => console.log("Redirecting back to log in page")}>Go back to login</Link>
         </div>
     )
 }
