@@ -69,6 +69,9 @@ export default function LoginPage() {
             <button 
             onClick={onLogin}
             className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600">Login here</button>
+            <button
+            // onClick={}
+            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"><Link href="/resetPassword">Forgot your password?</Link></button>
             <Link href="/signup">Not registered? Sign up here</Link>
         </div>
     )
