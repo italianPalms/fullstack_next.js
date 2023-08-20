@@ -1,11 +1,24 @@
 "use client";
 import Link from "next/link"; 
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import {useRouter} from "next/navigation";
 import axios from "axios";
-import toast from "react-hot-toast";
+import {toast} from "react-hot-toast";
 
 export default function resetPassword() {
+    const [email, setEmail] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    const checkUserExists = async () => {
+        try {
+            
+        } catch (error:any) {
+            console.log("Failed to check if user exists", error.message)
+            return false;
+            
+        }
+    }
+
    
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
