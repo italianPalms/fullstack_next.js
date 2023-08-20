@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link"; 
 import React, { useState } from "react";
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 import {toast} from "react-hot-toast";
 
@@ -44,8 +44,6 @@ export default function resetPassword() {
                 toast.error('Password reset request failed')
             }
 
-
-
         } catch (error:any) {
             console.log("Password reset request failed", error.message)
             toast.error(error.message);
@@ -54,8 +52,6 @@ export default function resetPassword() {
             setLoading(false);
         }
     }
-
-   
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
         <h1 className="text-2xl">Reset your password</h1>
