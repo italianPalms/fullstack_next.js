@@ -3,54 +3,91 @@ import Link from "next/link";
 import React, { useState } from "react";
 import axios from "axios";
 import {toast} from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export default function resetPassword() {
-    const [email, setEmail] = useState("");
-    const [loading, setLoading] = useState(false);
 
-    const checkUserExists = async (email: string) => {
+    const router = useRouter();
+    const [email, setEmail] = React.useState("");
+    const [loading, setLoading] = React.useState(false);
+
+    const checkUserExists = async () => {
         try {
-            const response = await axios.post('/api/users/checkUserExist', {email});
-            return response.data.exists;
+            if (!email) {
+            console.log("Please enter your email");
+            toast.error("Please enter your email");
+            return;
+            }
 
-        } catch (error:any) {
-            console.log("Failed to check if user exists", error.message)
-            return false;
-        }
-    };
-
-    const sendResetPasswordRequest = async () => {
-        try {
             setLoading(true);
 
-            if (!email) {
-                toast.error("Please enter your email");
-                return;
-            }
-
-            const userExists = await checkUserExists(email);
-
-            if (!userExists) {
-                toast.error("The user don't exist. Please sign up");
-                return; 
-            }
-
-            const response = await axios.post('/api/usrs/resetPassword', {email});
-
-            if (response.status === 200) {
-                toast.success("Password reset request sent")
-            } else {
-                toast.error('Password reset request failed')
-            }
-
-        } catch (error:any) {
-            console.log("Password reset request failed", error.message)
-            toast.error(error.message);
+            const response = await axios.post("/api/users/checkUserExist", {email})
             
+            console.log("User exist", response.data);
+        
+        } catch (error:any) {
+            console.log("User don't exist. Please sign up", error.message)
+            // router.push("/signup")
+            toast.error(error.message);
+        
         } finally {
-            setLoading(false);
+            setLoading(false)
         }
-    };
+    }
+    
+
+    // const [email, setEmail] = useState("");
+    // const [loading, setLoading] = useState(false);
+
+    // const checkUserExists = async (email: string) => {
+    //     try {
+    //         const response = await axios.post('/api/users/checkUserExist', {email});
+    //         console.log(response.data);
+    //         return response.data.exists;
+            
+
+    //     } catch (error:any) {
+    //         // console.log("Failed to check if user exists", error.message)
+    //         console.log("The user don't exist. Please sign up", error.message)
+    //         return false;
+    //     }
+    // };
+
+    // const sendResetPasswordRequest = async () => {
+    //     try {
+    //         setLoading(true);
+
+    //         if (!email) {
+    //             console.log("Please enter your email");
+    //             toast.error("Please enter your email");
+    //             return;
+    //         }
+
+    //         const userExists = await checkUserExists(email);
+
+    //         // if (!userExists) {
+    //         //     console.log("The user don't exist. Please sign up");
+    //         //     toast.error("The user don't exist. Please sign up");
+    //         //     return; 
+    //         // }
+
+    //         const response = await axios.post('/api/users/resetPassword', {email});
+
+    //         if (response.status === 200) {
+    //             console.log("Password reset request sent");
+    //             toast.success("Password reset request sent")
+    //         } else {
+    //             toast.error('Password reset request failed')
+    //         }
+
+    //     } catch (error:any) {
+    //         console.log("Password reset request failed", error.message)
+    //         toast.error(error.message);
+            
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
@@ -69,7 +106,7 @@ export default function resetPassword() {
         <button 
         onClick={() => {
             console.log("Submit button clicked");
-            sendResetPasswordRequest();
+            checkUserExists();
         }}
         className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600">Submit</button>
 

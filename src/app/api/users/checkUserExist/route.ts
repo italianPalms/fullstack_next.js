@@ -19,7 +19,8 @@ export async function POST(request: NextRequest) {
         if (user) {
             console.log("User exist");
             return NextResponse.json({message: 'User exist'}, {status: 200});
-        } else {
+        } 
+        else {
             console.log("User does not exits");
             return NextResponse.json({message: "User does not exist"}, {status: 404});
         }
