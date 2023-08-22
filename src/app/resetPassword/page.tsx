@@ -22,6 +22,7 @@ export default function resetPassword() {
             setLoading(true);
 
             const response = await axios.post("/api/users/checkUserExist", {email})
+            // router.push("/submitNewPassword");
             
             console.log("User exist", response.data);
         

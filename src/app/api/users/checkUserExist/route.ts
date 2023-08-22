@@ -1,4 +1,5 @@
 import { connect } from '@/dbConfig/dbConfig';
+import { sendEmail } from '@/helpers/mailer';
 import User from '@/models/userModel';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -17,10 +18,12 @@ export async function POST(request: NextRequest) {
         
         const user = await User.findOne({email})
         if (user) {
+            await sendEmail({email, emailType: 'RESET', 
+        userId: user._id})
             console.log("User exist");
             return NextResponse.json({message: 'User exist'}, {status: 200});
-        } 
-        else {
+
+        } else {
             console.log("User does not exits");
             return NextResponse.json({message: "User does not exist"}, {status: 404});
         }
