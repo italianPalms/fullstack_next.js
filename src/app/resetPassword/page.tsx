@@ -22,7 +22,7 @@ export default function resetPassword() {
             setLoading(true);
 
             const response = await axios.post("/api/users/checkUserExist", {email})
-            // router.push("/submitNewPassword");
+            router.push("/submitNewPassword");
             
             console.log("User exist", response.data);
         
@@ -106,7 +106,7 @@ export default function resetPassword() {
 
         <button 
         onClick={() => {
-            console.log("Submit button clicked");
+            // console.log("Submit button clicked");
             checkUserExists();
         }}
         className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600">Submit</button>
