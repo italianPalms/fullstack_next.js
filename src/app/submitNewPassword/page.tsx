@@ -2,8 +2,7 @@
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import router from "next/router";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import toast from "react-hot-toast";
 
 
@@ -12,7 +11,7 @@ export default function submitNewPassword() {
     const router = useRouter();
   
     const [password, setPassword] = useState("");
-    const [loading, setLoading] = React.useState(false);
+    const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState("");
 
     const resetPassword = async () => {
@@ -33,7 +32,6 @@ export default function submitNewPassword() {
             setLoading(false);
          }
     };
-
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
