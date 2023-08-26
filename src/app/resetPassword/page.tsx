@@ -5,7 +5,7 @@ import axios from "axios";
 import {toast} from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
-export default function resetPassword() {
+export default function ResetPassword() {
 
     const router = useRouter();
     const [email, setEmail] = useState("");

@@ -6,7 +6,7 @@ import React, {useState} from "react";
 import toast from "react-hot-toast";
 
 
-export default function submitNewPassword() {
+export default function SubmitNewPassword() {
 
     const router = useRouter();
   
