@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 export default function submitNewPassword() {
 
     const router = useRouter();
-
+  
     const [password, setPassword] = useState("");
     const [loading, setLoading] = React.useState(false);
     const [email, setEmail] = useState("");
@@ -63,6 +63,8 @@ export default function submitNewPassword() {
             disabled={loading} > 
             {loading ? "Resetting..." : "Reset Password"}
             </button>
+
+            <Link href="/login" onClick={() => console.log("Redirecting back to log in page")}>Go back to login</Link>
         </div>
     )
 }

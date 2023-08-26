@@ -35,7 +35,7 @@ export default function resetPassword() {
             setLoading(false)
         }
     }
-    
+
 
     // const [email, setEmail] = useState("");
     // const [loading, setLoading] = useState(false);
