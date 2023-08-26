@@ -3,30 +3,38 @@ import User from '@/models/userModel';
 import { NextRequest, NextResponse } from 'next/server';
 import bcryptjs from 'bcryptjs';
 
-connect()
+connect();
 
 export async function POST(request: NextRequest) {
     try {
-        const reqBody = await request.json()
-        const {email, password} = reqBody
+        const reqBody = await request.json();
+        const {email, password} = reqBody;
+        console.log("Request body:", reqBody)
 
-        const user = await User.findOne({email})
+    
+    const user = await User.findOne({email})
+    console.log("User found:", user);
 
         if (user) {
-            const salt = await bcryptjs.genSalt(10)
+            console.log("User found", user);
+            const salt = await bcryptjs.genSalt(10);
             const hashedPassword = await bcryptjs.hash(password, salt);
-            await User.updateOne({email}, {password: hashedPassword});
 
-            // const newPassword = ({
-            //     username, 
-            //     email, 
-            //     password: hashedPassword
-            // })
+            user.password = hashedPassword;
+            await user.save();
 
-            console.log("New password successfully set")
-            return NextResponse.json({message: "Password reset seccussful"});
-        }
-        
+            return NextResponse.json({
+                message: 'Password reset successfully',
+                success: true,
+            });
+    } else {
+        console.log("Email dont exist");
+        return NextResponse.json({
+            message: "Email doesn't exist",
+            success: false, 
+            status: 404
+        });
+    }
     } catch (error:any) {
         console.log("Failed to reset password", error.message)
         return NextResponse.json({error: error.message}, 

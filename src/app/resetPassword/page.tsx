@@ -22,13 +22,13 @@ export default function resetPassword() {
             setLoading(true);
 
             const response = await axios.post("/api/users/checkUserExist", {email})
-            router.push("/submitNewPassword");
+            router.push("/landingpagePassword");
             
             console.log("User exist", response.data);
         
         } catch (error:any) {
             console.log("User don't exist. Please sign up", error.message)
-            // router.push("/signup")
+            router.push("/signup")
             toast.error(error.message);
         
         } finally {
@@ -89,6 +89,8 @@ export default function resetPassword() {
     //         setLoading(false);
     //     }
     // };
+
+
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
