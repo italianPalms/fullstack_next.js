@@ -17,6 +17,17 @@ export default function SubmitNewPassword() {
     const resetPassword = async () => {
 
         try {
+
+            if (!email) {
+                console.log("Please enter your email");
+                return;
+            }
+
+            if (!password) {
+                console.log("Please enter your new password");
+                return;
+            }
+
             setLoading(true);
             const response = await axios.post("/api/users/resetPassword", {
                 email: email,
