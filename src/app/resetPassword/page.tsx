@@ -38,11 +38,11 @@ export default function ResetPassword() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
-        <h1 className="text-2xl">Reset your password</h1>
+        <h1 className="text-4xl">Reset your password</h1>
 
-        <label className="p-2" htmlFor="email">Email</label>
+        <label className="mt-2" htmlFor="email">Email</label>
         <input
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
+        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black mt-2"
         id="email"
         type="text"
         placeholder="email"
@@ -55,7 +55,7 @@ export default function ResetPassword() {
             // console.log("Submit button clicked");
             checkUserExists();
         }}
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600">Submit</button>
+        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 mt-2">Submit</button>
 
         <Link href="/login" onClick={() => console.log("Redirecting back to log in page")}>Go back to login</Link>
         </div>

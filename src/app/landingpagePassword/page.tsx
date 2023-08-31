@@ -9,9 +9,9 @@ export default function resetPassword() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
-        <h1 className="text-2xl">Check your email</h1>
+        <h1 className="text-4xl">Check your email</h1>
 
-        <Link href="/login" onClick={() => console.log("Redirecting back to log in page")}>Go back to login</Link>
+        <Link className="mt-2" href="/login" onClick={() => console.log("Redirecting back to log in page")}>Go back to login</Link>
         </div>
     )
 }

@@ -49,12 +49,12 @@ export default function LoginPage() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
-            <h1>{loading ? "Processing" : "Login"}</h1>
+            <h1 className="text-4xl">{loading ? "Processing" : "Login"}</h1>
             <hr />
 
-            <label htmlFor="email">email</label>
+            <label className="mt-2" htmlFor="email">email</label>
             <input 
-            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
+            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black mt-2"
             id="email" 
             type="text"
             value={user.email}
@@ -64,7 +64,7 @@ export default function LoginPage() {
 
             <label htmlFor="password">password</label>
             <input 
-            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
+            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black mt-2"
             id="password" 
             type="password"
             value={user.password}
@@ -74,11 +74,11 @@ export default function LoginPage() {
             />
             <button 
             onClick={onLogin}
-            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600">Login</button>
+            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 mt-2">Login</button>
             
             <button
             onClick={resetPassword}
-            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600">Forgot your password</button>
+            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 mt-2">Forgot your password</button>
 
             <Link href="/signup">Not registered? Sign up here</Link>
         </div>

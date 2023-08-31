@@ -35,10 +35,10 @@ export default function SubmitNewPassword() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
-            <h1 className="text-2xl">Enter new password</h1>
-            <label className="p-2" htmlFor="email">Email</label>
+            <h1 className="text-4xl">Enter new password</h1>
+            <label className="mt-2" htmlFor="email">Email</label>
         <input
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
+        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black mt-2"
         id="email"
         type="text"
         placeholder="email"
@@ -47,7 +47,7 @@ export default function SubmitNewPassword() {
         />
             <label className="mt-3" htmlFor="password">New password</label>
             <input
-            className="mt-3 p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
+            className="mt-3 p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black mt-2"
             id="password"
             type="password"
             value={password}
@@ -56,7 +56,7 @@ export default function SubmitNewPassword() {
             />
 
             <button 
-            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 mt-2"
             onClick={resetPassword}
             disabled={loading} > 
             {loading ? "Resetting..." : "Reset Password"}
