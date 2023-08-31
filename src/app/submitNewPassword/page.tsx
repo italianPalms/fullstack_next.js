@@ -48,14 +48,14 @@ export default function SubmitNewPassword() {
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
             <h1 className="text-4xl">Enter new password</h1>
             <label className="mt-2" htmlFor="email">Email</label>
-        <input
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black mt-2"
-        id="email"
-        type="text"
-        placeholder="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        />
+            <input
+            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black mt-2"
+            id="email"
+            type="text"
+            placeholder="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            />
             <label className="mt-3" htmlFor="password">New password</label>
             <input
             className="mt-3 p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black mt-2"
